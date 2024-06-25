@@ -52,7 +52,6 @@ func Start() {
 		case <-quit:
 			terminal.ClearScreen()
 			return
-
 		}
 		move()
 		eat()
