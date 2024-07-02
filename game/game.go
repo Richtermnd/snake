@@ -50,7 +50,7 @@ func Start() {
 		select {
 		case <-ticker.C:
 		case <-quit:
-			terminal.ClearScreen()
+			terminal.ResetCursor()
 			return
 		}
 		move()
@@ -159,5 +159,5 @@ func render() {
 	for point := range foodMap {
 		screen[point.Y*width+point.X] = FOOD
 	}
-	terminal.ClearAndWrite(screen)
+	terminal.ResetAndWrite(screen)
 }

@@ -15,12 +15,12 @@ func GetTerminalSize() (int, int) {
 	return w, h
 }
 
-func ClearAndWrite(b []byte) (int, error) {
-	ClearScreen()
+func ResetAndWrite(b []byte) (int, error) {
+	ResetCursor()
 	return os.Stdout.Write(b)
 }
 
-func ClearScreen() {
-	// exec.Command("clear")
-	fmt.Print("\033[H\033[2J")
+func ResetCursor() {
+	// move cursor ton (0, 0) position
+	fmt.Print("\033[H")
 }
