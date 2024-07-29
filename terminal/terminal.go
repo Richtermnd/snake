@@ -15,6 +15,14 @@ func GetTerminalSize() (int, int) {
 	return w, h
 }
 
+func HideCursor() {
+	fmt.Print("\033[?25l")
+}
+
+func ShowCursor() {
+	fmt.Print("\033[?25h")
+}
+
 func ResetAndWrite(b []byte) (int, error) {
 	ResetCursor()
 	return os.Stdout.Write(b)

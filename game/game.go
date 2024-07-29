@@ -41,7 +41,7 @@ var height int
 func Start() {
 	width, height = terminal.GetTerminalSize()
 	ticker := time.NewTicker(time.Second / FPS)
-
+	terminal.HideCursor()
 	// quit channel to handle Ctrc+C
 	quit := make(chan struct{}, 1)
 	go handleKeyboard(quit)
@@ -51,6 +51,7 @@ func Start() {
 		case <-ticker.C:
 		case <-quit:
 			terminal.ResetCursor()
+			terminal.ShowCursor()
 			return
 		}
 		move()
