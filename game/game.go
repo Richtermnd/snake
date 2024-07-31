@@ -82,6 +82,17 @@ func handleKeyboard(quit chan struct{}) {
 		case keyboard.KeyCtrlC:
 			quit <- struct{}{}
 		}
+
+		switch event.Rune {
+		case 'k':
+			changeDir(point{0, -1})
+		case 'j':
+			changeDir(point{0, 1})
+		case 'h':
+			changeDir(point{-1, 0})
+		case 'l':
+			changeDir(point{1, 0})
+		}
 	}
 }
 
